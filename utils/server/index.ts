@@ -177,7 +177,6 @@ export const OpenAIStream = async (
   const openAI = new AzureOpenAI({
     azureADTokenProvider: azureADTokenProvider,
     endpoint: OPENAI_API_HOST,
-    //azureDeploymentId: AZURE_DEPLOYMENT_ID,
     apiVersion: OPENAI_API_VERSION
   });
 

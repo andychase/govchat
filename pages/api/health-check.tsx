@@ -1,3 +1,20 @@
+/**
+ * @swagger
+ * /api/health-check:
+ *   post:
+ *     summary: Health check for the chat API
+ *     description: Performs a health check by sending a test message to the chat handler.
+ *     tags:
+ *       - Health
+ *     requestBody:
+ *       required: false
+ *     responses:
+ *       200:
+ *         description: Health check successful
+ *       500:
+ *         description: Health check failed
+ */
+
 import { NextApiRequest, NextApiResponse } from 'next';
 import handler from './chat';
 import { OpenAIModels } from '@/types/openai';

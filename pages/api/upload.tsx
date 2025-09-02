@@ -1,3 +1,68 @@
+/**
+ * @swagger
+ * /api/upload:
+ *   post:
+ *     summary: Upload a file to Azure OpenAI and optionally associate with a vector store.
+ *     description: Accepts multipart/form-data file uploads. Returns file IDs from Azure OpenAI.
+ *     tags:
+ *       - Upload
+ *     parameters:
+ *       - in: query
+ *         name: vectorStoreId
+ *         schema:
+ *           type: string
+ *         required: false
+ *         description: Optional vector store ID to associate the uploaded file.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *                 description: File to upload.
+ *     responses:
+ *       200:
+ *         description: File(s) uploaded successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: string
+ *                 description: Uploaded file ID.
+ *       400:
+ *         description: Error parsing form data.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *       405:
+ *         description: Method not allowed.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *       500:
+ *         description: File upload failed.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ */
+
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createAzureOpenAI } from '@/utils/lib/azure';
 import busboy from 'busboy';

@@ -10,6 +10,61 @@ import { Readability } from '@mozilla/readability';
 import endent from 'endent';
 import jsdom, { JSDOM } from 'jsdom';
 
+/**
+ * @swagger
+ * /api/google:
+ *   post:
+ *     summary: Search Google and generate AI response
+ *     description: This is a route that probably should have been removed and isn't in the UI. Since no `process.env.GOOGLE_API_KEY` is provided in our deployment, it should just show an error and do nothing else. 
+ *     tags:
+ *       - Google
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               messages:
+ *                 type: array
+ *                 items:
+ *                   $ref: '#/components/schemas/Message'
+ *                 description: Array of chat messages, last one is the user query
+ *               key:
+ *                 type: string
+ *                 description: OpenAI API key
+ *               model:
+ *                 type: object
+ *                 description: Model info (id required)
+ *               googleAPIKey:
+ *                 type: string
+ *                 description: Google API key (optional)
+ *               googleCSEId:
+ *                 type: string
+ *                 description: Google Custom Search Engine ID (optional)
+ *     responses:
+ *       200:
+ *         description: AI-generated answer with citations
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 answer:
+ *                   type: string
+ *                   description: Markdown answer citing sources
+ *       500:
+ *         description: Error response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Error message
+ */
+
 const handler = async (req: NextApiRequest, res: NextApiResponse<any>) => {
   try {
     const { messages, key, model, googleAPIKey, googleCSEId } =

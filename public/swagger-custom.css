@@ -1,0 +1,17 @@
+.swagger-ui,
+.swagger-ui .topbar,
+.swagger-ui .information-container,
+.swagger-ui .opblock,
+.swagger-ui .opblock-summary,
+.swagger-ui .opblock-description-wrapper,
+.swagger-ui .responses-wrapper,
+.swagger-ui .response,
+.swagger-ui .response-col_description,
+.swagger-ui .model-box {
+  background: #fff !important;
+  color: #222 !important;
+}
+
+.swagger-ui .topbar {
+  border-bottom: 1px solid #eee;
+}

@@ -4,6 +4,63 @@ import { ChatBody, Message } from '@/types/chat';
 
 import { NextApiRequest, NextApiResponse } from 'next';
 
+/**
+ * @swagger
+ * /api/chat:
+ *   post:
+ *     summary: Chat with AI model (OpenAI/Azure)
+ *     description: Streams chat responses from the selected AI model. Supports OpenAI, Azure, and plugin integrations.
+ *     tags:
+ *       - Chat
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               model:
+ *                 type: string
+ *                 description: Model name (e.g., gpt-3.5-turbo)
+ *               messages:
+ *                 type: array
+ *                 items:
+ *                   $ref: '#/components/schemas/Message'
+ *               key:
+ *                 type: string
+ *                 description: NOT USED
+ *               prompt:
+ *                 type: string
+ *                 description: System prompt
+ *               temperature:
+ *                 type: number
+ *                 description: Model "temperature", 0-2 I think. Only some models support it.
+ *               assistantId:
+ *                 type: string
+ *                 description: Assistant ID (optional), used for files. Comes from getid route.
+ *               vectorStoreId:
+ *                 type: string
+ *                 description: Vector store ID (optional), used for files.
+ *               fileIds:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: File IDs (optional)
+ *     responses:
+ *       200:
+ *         description: Streamed chat response
+ *         content:
+ *           text/event-stream:
+ *             schema:
+ *               type: string
+ *       500:
+ *         description: Error response
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ */
+
 export const config = {
   api: {
     bodyParser: {

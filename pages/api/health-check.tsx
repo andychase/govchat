@@ -8,6 +8,14 @@
  *       - Health
  *     requestBody:
  *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               content:
+ *                 type: string
+ *                 description: No body given
  *     responses:
  *       200:
  *         description: Health check successful

@@ -8,8 +8,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
  * @swagger
  * /api/chat:
  *   post:
- *     summary: Chat with AI model (OpenAI/Azure)
- *     description: Streams chat responses from the selected AI model. Supports OpenAI, Azure, and plugin integrations.
+ *     summary: Chat with AI model
+ *     description: Streams chat responses from the selected AI model.
  *     tags:
  *       - Chat
  *     requestBody:
@@ -21,7 +21,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
  *             properties:
  *               model:
  *                 type: string
- *                 description: Model name (e.g., gpt-3.5-turbo)
+ *                 description: Model name (default: gpt4)
  *               messages:
  *                 type: array
  *                 items:
@@ -31,7 +31,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
  *                 description: NOT USED
  *               prompt:
  *                 type: string
- *                 description: System prompt
+ *                 description: System prompt. Users can control this and override it.
  *               temperature:
  *                 type: number
  *                 description: Model "temperature", 0-2 I think. Only some models support it.
@@ -45,7 +45,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
  *                 type: array
  *                 items:
  *                   type: string
- *                 description: File IDs (optional)
+ *                 description: NOT USED. Files used are from the assistantId / vectorStoreId
  *     responses:
  *       200:
  *         description: Streamed chat response

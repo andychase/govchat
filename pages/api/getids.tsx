@@ -7,7 +7,7 @@ import { createAzureOpenAI } from '@/utils/lib/azure';
  * /api/getids:
  *   get:
  *     summary: Generate assistant and vector store IDs for files
- *     description: These ids are assumed to be very random and unique so though they aren't authenticated that aren't guessable. Files on here only last 30 days.
+ *     description: Generates an assistantId and vectorStorageId. These ids are assumed to be very random and unique and so not guessable. Files on here only last 30 days.
  *     tags:
  *       - IDs
  *     responses:

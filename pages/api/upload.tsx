@@ -2,7 +2,7 @@
  * @swagger
  * /api/upload:
  *   post:
- *     summary: Upload a file to Azure OpenAI and optionally associate with a vector store.
+ *     summary: Upload a file to Azure OpenAI using a vectorStoreId. We assume users will only know their vectorStoreIds
  *     description: Accepts multipart/form-data file uploads. Returns file IDs from Azure OpenAI.
  *     tags:
  *       - Upload
@@ -12,7 +12,7 @@
  *         schema:
  *           type: string
  *         required: false
- *         description: Optional vector store ID to associate the uploaded file.
+ *         description: Vector store ID to associate the uploaded file.
  *     requestBody:
  *       required: true
  *       content:

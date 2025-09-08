@@ -21,7 +21,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
  *             properties:
  *               model:
  *                 type: string
- *                 description: Model name (default: gpt4)
+ *                 description: Model name default gpt4
  *               messages:
  *                 type: array
  *                 items:

@@ -47,7 +47,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                         });
 
                         if (vectorStoreId) {
-                            await openAI.beta.vectorStores.files.create(
+                            await openAI.vectorStores.files.create(
                                 vectorStoreId,
                                 { file_id: result.id }
                             );

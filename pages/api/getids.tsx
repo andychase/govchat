@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			model: DEFAULT_MODEL, // The model can be overwritten by the thread
 			tools: [{ type: 'file_search' }]
 		});
-		const vectorStore = await openAI.beta.vectorStores.create({
+		const vectorStore = await openAI.vectorStores.create({
 			expires_after: {
 				anchor: 'last_active_at',
 				days: 30

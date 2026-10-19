@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { fallbackModelID, OpenAIModels } from '@/types/openai';
 import handler from './chat';
 
 export default async function healthCheck(req: NextApiRequest, res: NextApiResponse) {
@@ -18,12 +19,7 @@ export default async function healthCheck(req: NextApiRequest, res: NextApiRespo
             content: 'Reply with "ok" to this message to confirm the health of the API.',
           },
         ],
-        model: {
-          id: 'gpt-5',
-          name: 'GPT-5',
-          maxLength: 128_000 * 3.5, // *3.5 was the tested limit using some trial and error
-          tokenLimit: 128_000,
-        },
+        model: OpenAIModels[fallbackModelID],
       prompt: "You are an AI Assistant that uses Azure OpenAI. Follow the user's instructions carefully. Respond using markdown.",
       temperature: 0.5,
       folderId: null,

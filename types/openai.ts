@@ -1,5 +1,3 @@
-import { OPENAI_API_TYPE } from '../utils/app/const';
-import { Message } from './chat';
 
 export interface OpenAIModel {
   id: string;

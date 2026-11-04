@@ -68,7 +68,7 @@ const Sidebar = <T,>({
 
         <div className="text-black text-[8pt]">
             <span className="mb-1 font-bold">SI: </span>
-            <a className="underline" href="https://work.epa.gov/node/1964154">Use Cases</a> |&nbsp;
+            <a className="underline" href="https://work.epa.gov/node/644842">Use Cases</a> |&nbsp;
             <a className="underline" href="https://work.epa.gov/node/611113">Training</a> |&nbsp;
             <a className="underline" href="https://work.epa.gov/node/611111">Resources</a><br/>
             <a className="underline" href="https://work.epa.gov/node/611115">Community of Practice</a> |&nbsp;

@@ -12,7 +12,7 @@ import { Key } from '../../Settings/Key';
 import { SidebarButton } from '../../Sidebar/SidebarButton';
 import ChatbarContext from '../Chatbar.context';
 import { ClearConversations } from './ClearConversations';
-import { ImportConversations } from './ImportConversations';
+import { ImportExportConversations } from './ImportExportConversations';
 
 export const ChatbarSettings = () => {
   const { t } = useTranslation('sidebar');
@@ -38,7 +38,7 @@ export const ChatbarSettings = () => {
 
   return (
     <div className="flex flex-col items-center space-y-1 border-t border-white/20 pt-1 text-sm text-black">
-      <ImportConversations />
+      <ImportExportConversations />
       {conversations.length > 0 ? (
         <ClearConversations onClearConversations={handleClearConversations} />
       ) : null}
